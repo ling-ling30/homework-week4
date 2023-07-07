@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Week 4</title>
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <div class="w-screen h-screen flex items-center justify-center bg-slate-300">
+        <div class="notif absolute top-0 w-screen ">    <!--disini adalah kumpulan notif-->
+            <div id="name-alert" class="alert alert-error flex flex-wrap flex-1 justify-between absolute hidden">
+                <div class="flex gap-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span >Name must have 10 character or more.</span>
+                </div>
+                <a onclick="document.getElementById('name-alert').classList.add('hidden')" class="justify-end cursor-pointer text-black"> X </a>
+                
+            </div>
+
+            <div id="age-alert" class="alert alert-error flex flex-wrap flex-1 justify-between absolute hidden">
+                <div class="flex gap-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span >Age must at least 25 years old.</span>
+                </div>
+                <a onclick="document.getElementById('age-alert').classList.add('hidden')" class="justify-end cursor-pointer text-black"> X </a>
+                
+            </div>
+
+            <div id="income-alert" class="alert alert-error flex flex-wrap flex-1 justify-between absolute hidden">
+                <div class="flex gap-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span >Income must at least 100000 and maximum 100000.</span>
+                </div>
+                <a onclick="document.getElementById('income-alert').classList.add('hidden')" class="justify-end cursor-pointer text-black"> X </a>
+                
+            </div>
+        
+        </div>
+        
+
+        <div class=" p-8 bg-white rounded-lg min-w-[400px] fixed"> <!--ini container-->
+            <div class="tabs mb-7 -ml-8 -mt-8">  <!-- ini Tab-->
+                <a id="registration-tab" onclick= "displayShow('registration-tab','form')" class="tab tab-lifted text-xs tab-active ">Registration</a> 
+                <a id="table-tab" onclick= "displayShow('table-tab','table')" class="tab tab-lifted text-xs ">Table</a> 
+                
+            </div>
+            
+            
+            <form id="form" class="section flex flex-col">  <!--ini form nya-->
+                <h1 class="text-cyan-400 font-semibold text-2xl my-4">Registration</h1> <!--Heading-->
+                <label for="name" class="text-gray-700 font-medium my-1">Name:</label>
+                <input id="name" type="text"
+                class="bg-white border border-slate-300 rounded-md flex-1 outline-cyan-400 sm:text-xs p-1 pl-2" >
+
+                <label for="age" class="text-gray-700 font-medium my-1">Age:</label>
+                <input id="age" type="number"
+                class="bg-white border border-slate-300 rounded-md flex-1 outline-cyan-400 sm:text-xs p-1 pl-2" >
+
+                <label for="income" class="text-gray-700 font-medium my-1 after:content-['(Rp)'] after:text-xs after:text-red-400">Income:</label>
+                <input id="income" type="number"
+                class=" bg-white border border-slate-300 rounded-md flex-1  outline-cyan-400 sm:text-xs p-1 pl-2" >
+
+                <button type="submit" class="btn btn-sm btn-outline btn-info  bg-white mt-5">Submit</button>
+            </form>
+            
+            <div class="overflow-x-auto section hidden" id="table"> <!--ini Tabelnya-->
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Job</th>
+                      <th>Favorite Color</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody">
+                  </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="/src/app.js"></script>
+</body>
+</html>
