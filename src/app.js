@@ -5,6 +5,9 @@ const minIncome = 100000
 const maxIncome = 1000000
 const dataArray = []
 
+
+
+
 // fungsi ngatur tab buat nampilin content
 const displayShow = (id , section) => {
     // selector
@@ -89,6 +92,23 @@ document.getElementById('form').addEventListener('submit', function(event){
     
     //insert the data to the table
     writeTable(dataArray)}
+
+    //calculate avgage, avginc
+    let totalAge= 0
+    let totalIncome= 0
+    dataArray.forEach((i)=>{
+        totalAge += Number(i.age)
+        totalIncome += Number(i.income) 
+    })
+    let AverageAge= totalAge/dataArray.length
+    let AverageIncome= totalIncome/dataArray.length
+    
+    //add resume average age and average income
+    const resume = document.getElementById('resume')
+    const conclusion = document.createElement('p')
+    conclusion.textContent= `Average age is ${AverageAge} and Average income is ${AverageIncome}` 
+    console.log(conclusion)
+    resume.replaceChildren(conclusion)
 })
 
 
