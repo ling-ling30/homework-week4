@@ -106,6 +106,7 @@ document.getElementById('form').addEventListener('submit', function(event){
     //add resume average age and average income
     const resume = document.getElementById('resume')
     const conclusion = document.createElement('p')
+    conclusion.classList.add("text-xs","text-center","text-red-400")
     conclusion.textContent= `Average age is ${AverageAge} and Average income is ${AverageIncome}` 
     console.log(conclusion)
     resume.replaceChildren(conclusion)
