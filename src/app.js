@@ -82,16 +82,23 @@ document.getElementById('form').addEventListener('submit', function(event){
     if(filter(name.value, age.value, income.value)){
     
     // submit to class
-    const newPerson = new Person (name.value, age.value, income.value)
+    setTimeout(() => {
+        document.getElementById('success-alert').classList.remove('hidden');
+        name.value=''
+        age.value=''
+        income.value=''
+        
+        writeTable(dataArray)
+    }, 1500)
+    const newPerson = new Person (name.value, age.value, income.value);
     dataArray.push(newPerson)
+    
 
     //clear inputs
-    name.value=''
-    age.value=''
-    income.value=''
-    
     //insert the data to the table
-    writeTable(dataArray)}
+    }
+    
+
 
     //calculate avgage, avginc
     let totalAge= 0
@@ -106,9 +113,9 @@ document.getElementById('form').addEventListener('submit', function(event){
     //add resume average age and average income
     const resume = document.getElementById('resume')
     const conclusion = document.createElement('p')
-    conclusion.classList.add("text-xs","text-center","text-red-400")
+    conclusion.classList.add("text-xs","text-center","text-green-700","m-1")
     conclusion.textContent= `Average age is ${AverageAge} and Average income is ${AverageIncome}` 
-    console.log(conclusion)
+    
     resume.replaceChildren(conclusion)
 })
 
